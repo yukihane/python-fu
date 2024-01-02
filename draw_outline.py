@@ -23,7 +23,7 @@ register(
     "yukihane",#プラグインの作成者
     "yukihane",#プラグインの著作権保有者 (通常は author と同じ)
     "2024/01/02",#著作権の日付
-    "<Image>/Filters/Languages/Python-Fu/select_opaque", #メニューの中でプラグインに使用されるラベル
+    "<Image>/Filters/Languages/Python-Fu/Draw outline", #メニューの中でプラグインに使用されるラベル
     "RGB*, GRAY*", #プラグインで処理する対象となる画像のタイプex. RGB*, GRAY* など
     [],#引数(型, 名前（プロシージャブラウザに表示される）,説明, 初期値)
     [], # 戻り値
