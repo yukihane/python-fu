@@ -4,12 +4,17 @@
 from gimpfu import *
 
 def select_opaque_pixels(image, layer):
+    pdb.gimp_message_get_handler(ERROR_CONSOLE)
+    thickness = 3
+    position = pdb.gimp_image_get_item_position(image, layer)
+
     pdb.gimp_image_select_item(image, 0, layer)
-    pdb.gimp_selection_grow(image, 3)
-    new_layer = gimp.Layer(image, "outline", layer.width, layer.height, RGBA_IMAGE, 100, NORMAL_MODE)
-    # new_layer.set_offsets(layer.offsets)
-    new_layer.fill(0)
-    image.add_layer(new_layer, 0)
+    pdb.gimp_selection_grow(image, thickness)
+    new_layer = gimp.Layer(image, "ol_" + layer.name, layer.width + (thickness * 2), layer.height + (thickness * 2), RGBA_IMAGE, 100, NORMAL_MODE)
+    gimp.message(str(layer.offsets))
+    new_layer.set_offsets(layer.offsets[0] - thickness, layer.offsets[1] - thickness)
+    image.add_layer(new_layer, position + 1)
+    pdb.gimp_edit_fill(new_layer, BACKGROUND_FILL)
 
 register(
     "draw_outline",#コマンドラインまたはスクリプトから呼び出す場合のコマンドの名前
