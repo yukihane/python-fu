@@ -1,0 +1,3 @@
+== Usage
+
+`%APPDATA%\GIMP\2.10\plug-ins` に置きます。
